@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title  %}
+    Creation d'un contact.
+{% endblock %}
+
+{% block body %}
+    <div class= "container pt-5">
+    <div class="row">
+    {% include "shared/_messages_flash.html.twig" %}
+        <div class="card col-12">
+        <div class= "card-header"</div>
+        <h2>Créer un contact</h2>
+        </div>
+        <div class="card-body">
+        {{ form_start(formContact) }}
+
+            {{ form_widget(formContact) }}
+
+         <button type= "submit" class="btn btn-primary mt-3">Enregistrer</button>
+
+        {{ form_end(formContact) }}
+        </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

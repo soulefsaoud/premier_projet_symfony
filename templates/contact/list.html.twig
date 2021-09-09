@@ -1,0 +1,36 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Liste des contacts
+{% endblock %}
+
+{% block body %}
+
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center">Mes contacts</h1>
+            </div>
+
+        {% include "shared/_messages_flash.html.twig" %}
+            {% for contact in contacts %}
+                <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 mt-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4> {{ contact.name  }} </h4>
+                        </div>
+                        <div class="card-body">
+                            {{ contact.firstName }}
+                        </div>
+                        <div class="card-footer">
+                         <p>   Paru le {{ contact.createdAt | date('d-m-Y') }}  </p>
+                              <a class="btn btn-primary mt-2"  href="{{ path('detail_contact', {'id':contact.id}) }}">Consulter</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+{% endblock %}

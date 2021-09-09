@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title  %}
+   Modification d'un contact.
+{% endblock %}
+
+{% block body %}
+    <div class= "container pt-5">
+    <div class="row">
+    {% include "shared/_messages_flash.html.twig" %}
+        <div class="card col-12">
+        <div class= "card-header"</div>
+        
+         {% if app.user %}
+
+            {% if app.user.roles[0] is same as "ROLE_ADMIN" %}
+
+        <li class="nav-item">
+         {# {% for contact in contacts %} #}
+        <a class="nav-link" href="{{ path('modificate_contact', {'id':contact.id}) }}">Modifier un contact </a>
+        {# {% endfor %} #}
+
+
+              {% endif %}
+
+              {% endif %}
+        </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

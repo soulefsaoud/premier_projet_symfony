@@ -1,0 +1,48 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Detail d'un contact{% endblock %}
+
+{% block body %}
+<div class="container pt-5">
+    <div class="row">
+        <div class="class col-12">
+        <div class="class card">
+        <div class="class card-header">
+            <h3>
+            {{ contact.name | upper }}
+            </h3>
+          </div>
+        <div class="card-body">
+        {{ contact.firstName }}
+
+        <div class="card-body">
+       <p> Le numéro de téléphone est le suivant :{{ contact.phoneNumber }}</p>
+        </div>
+        <div class="card-footer">
+        <p>Publié le : {{ contact.createdAt | date('d-m-Y') }}</p>
+        {# <p>Auteur : {{ contact.prenom}} {{ contact.auteur.nomDeFamille }}/p> #}
+        
+        
+        </div>
+        </div>
+          {% if app.user %}
+
+            {% if app.user.roles[0] is same as "ROLE_ADMIN" %}
+
+        <a class="btn btn-danger mt-3" href= "{{ path('supprimer_contact', {'id':contact.id}) }}"> Supprimer le contact </a>
+        </div>
+
+
+          <a class="btn btn-danger mt-3" href= "{{ path('modificate_contact', {'id':contact.id}) }}"> Modifier le contact </a>
+    
+             {% endif %}
+
+          {% endif %}
+    
+    </div>
+
+
+</div>
+
+
+{% endblock %}
